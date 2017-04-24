@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>mindCloud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- To use Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-teal.min.css" />
+  <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
+  <link rel="stylesheet" type="text/css" href="./node_modules/dialog-polyfill/dialog-polyfill.css" />
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- To use Material Design Lite -->
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+</head>
+
+<body class="container-fluid">
+  <dialog class="mdl-dialog sign-up-modal">
+    <div class="mdl-dialog__content">
+      <form>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-email">
+          <input class="mdl-textfield__input" type="text" id="email" />
+          <label class="mdl-textfield__label" for="email">Email</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-password">
+          <input class="mdl-textfield__input" type="text" id="password" />
+          <label class="mdl-textfield__label" for="password">Password</label>
+        </div>
+      </form>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button">Sign Up</button>
+    </div>
+  </dialog>
+
+  <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
+  <script src="./node_modules/dialog-polyfill/dialog-polyfill.js"></script>
+  <script>
+    const dialog = document.querySelector('dialog');
+    dialogPolyfill.registerDialog(dialog);
+    // Now dialog acts like a native <dialog>.
+    dialog.showModal();
+  </script>
+
+</body>
+
 </html>

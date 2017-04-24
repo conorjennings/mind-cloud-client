@@ -1,2 +1,13 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+// Commenting out Bootstrap to avoid styling conflicts with Material Design Light
+
+// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.sign-up-modal {
+  width: 90%;
+}
+
+#email, #password {
+  width: 50%;
+  float: left;
+}
