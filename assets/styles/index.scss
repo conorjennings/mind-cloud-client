@@ -3,16 +3,26 @@
 // $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-#sign-in-modal {
-  width: 90%;
+.mdl-button {
+  background-color: white;
+  opacity: .6;
+  color: black;
 }
 
-#sign-up-modal {
-  position: fixed;
-  top: 200px;
+#sign-in-form-button {
+  color: #00796b;
+  width: 49%;
 }
 
-#email, #password {
-  width: 50%;
-  float: left;
+#sign-up-form-button {
+  color: #ff7043;
+  width: 49%;
+}
+
+#landing-modal {
+  background-color: #e0f2f1;
+}
+
+.welcome-modal-button-container {
+  text-align: center;
 }
