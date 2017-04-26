@@ -25,15 +25,13 @@
 <body class="container-fluid">
 
   <!-- Side Nav -->
-  <ul id="slide-out" class="side-nav sign-up-nav">
-    <li>
-    </li>
-    <li>
-    </li>
+  <ul id="slide-out" class="side-nav">
+    <li><a id="change-password-menu-item" href="#"><i class="material-icons">cloud</i>Change Password</a></li>
+    <li><a href="#"><i class="material-icons">cloud</i>Sign Out</a></li>
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">cloud</i></a>
 
-  <!-- Landing Modal -->
+  <!-- Landing Dialog -->
   <dialog id="landing-modal" class="mdl-dialog">
     <div class="welcome-modal-button-container">
       <button id="sign-in-form-button" type="button" class="mdl-button">Sign In</button>
@@ -73,6 +71,32 @@
     </div>
   </dialog>
 
+  <!-- Change Password Dialog -->
+  <dialog id="change-password-modal" class="mdl-dialog">
+    <div class="mdl-dialog__content">
+      <form id="change-password">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-old-pw">
+          <input name="passwords[old]" class="mdl-textfield__input" type="password" id="old-password" />
+          <label class="mdl-textfield__label" for="old-password">Current Password</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-new-pw">
+          <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password" />
+          <label class="mdl-textfield__label" for="new-password">New Password</label>
+        </div>
+      </form>
+      <form>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-new-pw-confirm">
+          <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password-confirm" />
+          <label class="mdl-textfield__label" for="new-password-confirm">Confirm New Password</label>
+        </div>
+      </form>
+      <div class="mdl-dialog__actions">
+        <button id="cancel-change-password-button" type="button" class="mdl-button">Cancel</button>
+        <button id="change-password-button" type="button" class="mdl-button">Submit</button>
+      </div>
+    </div>
+  </dialog>
+
   <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
   <script src="/node_modules/material-design-lite/material.min.js"></script>
   <script src="./node_modules/dialog-polyfill/dialog-polyfill.js"></script>
@@ -83,7 +107,12 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
   <script>
-    $('.button-collapse').sideNav()
+    $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    })
   </script>
 </body>
 

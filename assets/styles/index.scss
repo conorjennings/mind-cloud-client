@@ -7,22 +7,34 @@
   background-color: white;
   opacity: .6;
   color: black;
+  margin: 2px;
 }
 
 #sign-in-form-button {
   color: #00796b;
-  width: 49%;
+  width: 47%;
 }
 
 #sign-up-form-button {
   color: #ff7043;
-  width: 49%;
+  width: 47%;
 }
 
-#landing-modal {
+#landing-modal, #change-password-modal {
   background-color: #e0f2f1;
 }
 
 .welcome-modal-button-container {
+  text-align: center;
+}
+
+.mdl-dialog__actions {
+  display: inline;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+.mdl-dialog__content {
   text-align: center;
 }
