@@ -7,14 +7,14 @@
 
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
   <!-- To use Material Design Lite -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="./node_modules/material-design-lite/material.min.css" />
   <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
   <link rel="stylesheet" type="text/css" href="./node_modules/dialog-polyfill/dialog-polyfill.css" />
-  <!--Import materialize.css-->
+  <!-- Import materialize.css -->
   <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
-
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -25,11 +25,13 @@
 <body class="container-fluid">
 
   <!-- Side Nav -->
-  <ul id="slide-out" class="side-nav fixed">
-    <li><a id="change-password-menu-item" href="#"><i class="material-icons">cloud</i>Change Password</a></li>
-    <li><a href="#"><i class="material-icons">cloud</i>Sign Out</a></li>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">cloud</i></a>
+  <div id="side-nav">
+    <ul id="slide-out" class="side-nav fixed">
+      <li><a id="change-password-menu-item" href="#"><i class="material-icons">cloud</i>Change Password</a></li>
+      <li><a href="#" id="sign-out-menu-item"><i  class="material-icons">cloud</i>Sign Out</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">cloud</i></a>
+  </div>
 
   <!-- Landing Dialog -->
   <dialog id="landing-modal" class="mdl-dialog">
@@ -97,6 +99,19 @@
     </div>
   </dialog>
 
+  <div id="action-wrapper">
+    <button class="mdl-button mdl-js-button mdl-button--icon">
+    <i class="material-icons">lightbulb_outline</i>
+    </button>
+
+    <button class="mdl-button mdl-js-button mdl-button--icon">
+    <i class="material-icons">link</i>
+  </button>
+  </div>
+
+
+
+
   <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
   <script src="/node_modules/material-design-lite/material.min.js"></script>
   <script src="./node_modules/dialog-polyfill/dialog-polyfill.js"></script>
@@ -104,8 +119,10 @@
     const dialog = document.querySelector('dialog');
     dialogPolyfill.registerDialog(dialog);
   </script>
+  <!-- Add Scripts for Materialize -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+  <!-- Add Script for Materialize sideNav -->
   <script>
     $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 300

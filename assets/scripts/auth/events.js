@@ -19,6 +19,9 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+  $('#side-nav').show()
+  $('#landing-modal').hide()
+  $('#action-wrapper').show()
 }
 
 const displaySignUp = function (event) {
@@ -49,6 +52,16 @@ const onPasswordReset = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+  $('#landing-modal').show()
+  $('#side-nav').hide()
+  $('#change-password-modal').hide()
+  $('#action-wrapper').hide()
+}
+
 // Add authentication event handlers to page
 const addAuthHandlers = () => {
   $('#sign-up-button').on('click', onSignUp)
@@ -57,7 +70,7 @@ const addAuthHandlers = () => {
   $('#sign-in-form-button').on('click', displaySignIn)
   $('#sign-up-form-button').on('click', displaySignUp)
   $('#change-password-menu-item').on('click', displayChangePw)
-  // $('#sign-out').on('click', onSignOut)
+  $('#sign-out-menu-item').on('click', onSignOut)
   $('#change-password-button').on('click', onPasswordReset)
   // $('#changePasswordModal').on('submit', passwordResetConfirm)
 }

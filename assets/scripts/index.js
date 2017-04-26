@@ -9,6 +9,8 @@ $(() => {
   authEvents.addAuthHandlers()
   $('#landing-modal').show()
   $('.sign-up-modal').hide()
+  $('#side-nav').hide()
+  $('#action-wrapper').hide()
 })
 
 // use require with a reference to bundle the file and use it in this file
