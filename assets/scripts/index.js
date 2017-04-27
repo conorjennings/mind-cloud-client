@@ -17,4 +17,5 @@ $(() => {
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
-require('materialize-css')
+require('material-design-lite/src/material-design-lite.scss')
+require('materialize-css/sass/materialize.scss')

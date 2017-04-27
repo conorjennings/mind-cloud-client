@@ -8,7 +8,14 @@ module.exports = {
     entry: {
       application: './index.js',
       specs: './spec/_all.js',
-      vendor: ['jquery', 'bootstrap-sass']
+      vendor: [
+        'jquery',
+        'bootstrap-sass',
+        'dialog-polyfill',
+        'material-design-lite',
+        'materialize-css',
+        'material-design-icons'
+      ]
     },
 
     output: {

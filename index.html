@@ -10,11 +10,11 @@
 
   <!-- To use Material Design Lite -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="./node_modules/material-design-lite/material.min.css" />
+  <!-- <link rel="stylesheet" href="./node_modules/material-design-lite/material.min.css" /> -->
   <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
-  <link rel="stylesheet" type="text/css" href="./node_modules/dialog-polyfill/dialog-polyfill.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="./node_modules/dialog-polyfill/dialog-polyfill.css" /> -->
   <!-- Import materialize.css -->
-  <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
+  <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" /> -->
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -24,7 +24,7 @@
 
 <body class="container-fluid">
 
-  <!-- Side Nav -->
+  <!-- Side Navigation Menu -->
   <div id="side-nav">
     <ul id="slide-out" class="side-nav fixed">
       <li><a id="change-password-menu-item" href="#"><i class="material-icons">cloud</i>Change Password</a></li>
@@ -52,7 +52,7 @@
           </div>
         </form>
         <div class="mdl-dialog__actions">
-          <button id="sign-up-button" type="button" class="mdl-button">Sign Up</button>
+          <button id="sign-up-button" type="button" class="mdl-button">Submit</button>
         </div>
       </div>
       <div class="sign-in-modal">
@@ -67,7 +67,7 @@
           </div>
         </form>
         <div class="mdl-dialog__actions">
-          <button id="sign-in-button" type="button" class="mdl-button">Sign In</button>
+          <button id="sign-in-button" type="button" class="mdl-button">Submit</button>
         </div>
       </div>
     </div>
@@ -113,15 +113,15 @@
 
 
   <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
-  <script src="/node_modules/material-design-lite/material.min.js"></script>
-  <script src="./node_modules/dialog-polyfill/dialog-polyfill.js"></script>
+  <!-- <script src="/node_modules/material-design-lite/material.min.js"></script>
+  <script src="./node_modules/dialog-polyfill/dialog-polyfill.js"></script> -->
   <script>
     const dialog = document.querySelector('dialog');
     dialogPolyfill.registerDialog(dialog);
   </script>
   <!-- Add Scripts for Materialize -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
   <!-- Add Script for Materialize sideNav -->
   <script>
     $('.button-collapse').sideNav({
