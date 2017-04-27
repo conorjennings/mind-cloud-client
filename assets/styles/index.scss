@@ -1,21 +1,14 @@
 // Commenting out Bootstrap to avoid styling conflicts with Material Design Light
 
-// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import '~material-design-lite/src/material-design-lite.scss';
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+// @import '~material-design-lite/src/material-design-lite.scss';
 
 .mdl-button {
   background-color: white;
   opacity: .6;
   color: black;
   margin: 2px;
-}
-
-.mdl-dialog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 #action-wrapper {
@@ -37,9 +30,10 @@
   width: 47%;
 }
 
-#landing-modal, #change-password-modal {
+.modal-content {
   background-color: #e0f2f1;
 }
+
 
 .welcome-modal-button-container {
   text-align: center;
@@ -50,16 +44,4 @@
   text-align: center;
   padding: 0px;
   margin: 0px;
-}
-
-.mdl-dialog__content {
-  text-align: center;
-}
-
-@media screen and (min-width: 540px) {
-      .mdl-dialog {
-        position: absolute;
-        top: 50%;
-        left:279px;
-      }
 }

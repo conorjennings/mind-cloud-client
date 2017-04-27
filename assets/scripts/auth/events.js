@@ -19,8 +19,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  $('#side-nav').show()
-  $('#landing-modal').hide()
+  // $('#side-nav').show()
+  $('#welcome-modal').modal('hide')
   $('#action-wrapper').show()
 }
 
@@ -28,19 +28,19 @@ const displaySignUp = function (event) {
   event.preventDefault()
   $('.sign-up-modal').show()
   $('.sign-in-modal').hide()
-  $('#landing-modal').css('background-color', '#fbe9e7')
+  $('.modal-content').css('background-color', '#fbe9e7')
 }
 
 const displaySignIn = function (event) {
   event.preventDefault()
   $('.sign-up-modal').hide()
   $('.sign-in-modal').show()
-  $('#landing-modal').css('background-color', '#e0f2f1')
+  $('.modal-content').css('background-color', '#e0f2f1')
 }
 
 const displayChangePw = function (event) {
   event.preventDefault()
-  $('#change-password-modal').show()
+  $('#change-password-modal').modal('show')
 }
 
 const onPasswordReset = function (event) {
@@ -56,23 +56,25 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
-  $('#landing-modal').show()
-  $('#side-nav').hide()
-  $('#change-password-modal').hide()
+  $('#welcome-modal').modal('show')
   $('#action-wrapper').hide()
+}
+
+const cancelPasswordReset = function (event) {
+  $('#change-password-modal').modal('hide')
 }
 
 // Add authentication event handlers to page
 const addAuthHandlers = () => {
-  $('#sign-up-button').on('click', onSignUp)
-  $('#sign-in-button').on('click', onSignIn)
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
   $('#sign-up-form-button').on('click', displaySignUp)
   $('#sign-in-form-button').on('click', displaySignIn)
   $('#sign-up-form-button').on('click', displaySignUp)
-  $('#change-password-menu-item').on('click', displayChangePw)
-  $('#sign-out-menu-item').on('click', onSignOut)
-  $('#change-password-button').on('click', onPasswordReset)
-  // $('#changePasswordModal').on('submit', passwordResetConfirm)
+  $('#change-password-menu').on('click', displayChangePw)
+  $('#sign-out-menu').on('click', onSignOut)
+  $('#change-password').on('submit', onPasswordReset)
+  $('#cancel-change-password-button').on('click', cancelPasswordReset)
 }
 
 module.exports = {

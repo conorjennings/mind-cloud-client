@@ -8,13 +8,8 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- To use Material Design Lite -->
+  <!-- To use Material Design Lite Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- <link rel="stylesheet" href="./node_modules/material-design-lite/material.min.css" /> -->
-  <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
-  <!-- <link rel="stylesheet" type="text/css" href="./node_modules/dialog-polyfill/dialog-polyfill.css" /> -->
-  <!-- Import materialize.css -->
-  <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" /> -->
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -24,80 +19,84 @@
 
 <body class="container-fluid">
 
-  <!-- Side Navigation Menu -->
-  <div id="side-nav">
-    <ul id="slide-out" class="side-nav fixed">
-      <li><a id="change-password-menu-item" href="#"><i class="material-icons">cloud</i>Change Password</a></li>
-      <li><a href="#" id="sign-out-menu-item"><i  class="material-icons">cloud</i>Sign Out</a></li>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">cloud</i></a>
+  <!-- Change Password and Sign Out -->
+  <div id="nav">
+    <button id="change-password-menu" class="mdl-button mdl-js-button">Change Password</button>
+    <button id="sign-out-menu" class="mdl-button mdl-js-button">Sign Out</button>
   </div>
 
-  <!-- Landing Dialog -->
-  <dialog id="landing-modal" class="mdl-dialog">
-    <div class="welcome-modal-button-container">
-      <button id="sign-in-form-button" type="button" class="mdl-button">Sign In</button>
-      <button id="sign-up-form-button" type="button" class="mdl-button">Sign Up</button>
-    </div>
-    <div class="mdl-dialog__content">
-      <div class="sign-up-modal">
-        <form id="sign-up">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-email">
-            <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-up-email" />
-            <label class="mdl-textfield__label" for="sign-up-email">Email</label>
+  <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="welcome-modal-button-container">
+          <button id="sign-in-form-button" type="button" class="mdl-button">Sign In</button>
+          <button id="sign-up-form-button" type="button" class="mdl-button">Sign Up</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body" id="welcome-modal-body">
+            <div class="sign-in-modal">
+              <form id="sign-in">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-in-email">
+                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-in-email" />
+                  <label class="mdl-textfield__label" for="sign-in-email">Email</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-in-password">
+                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-in-password" />
+                  <label class="mdl-textfield__label" for="sign-in-password">Password</label>
+                </div>
+                <div class="mdl-dialog__actions">
+                  <button id="sign-in-button" type="submit" name="submit" value="Sign In" class="mdl-button">Submit</button>
+                </div>
+              </form>
+            </div>
+            <div class="sign-up-modal">
+              <form id="sign-up">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-email">
+                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-up-email" />
+                  <label class="mdl-textfield__label" for="sign-up-email">Email</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-password">
+                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-up-password" />
+                  <label class="mdl-textfield__label" for="sign-up-password">Password</label>
+                </div>
+                <div class="mdl-dialog__actions">
+                  <button id="sign-up-button" type="submit" name="submit" value="Sign Up" class="mdl-button">Submit</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-password">
-            <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-up-password" />
-            <label class="mdl-textfield__label" for="sign-up-password">Password</label>
-          </div>
-        </form>
-        <div class="mdl-dialog__actions">
-          <button id="sign-up-button" type="button" class="mdl-button">Submit</button>
         </div>
       </div>
-      <div class="sign-in-modal">
-        <form id="sign-in">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-in-email">
-            <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-in-email" />
-            <label class="mdl-textfield__label" for="sign-in-email">Email</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-in-password">
-            <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-in-password" />
-            <label class="mdl-textfield__label" for="sign-in-password">Password</label>
-          </div>
-        </form>
-        <div class="mdl-dialog__actions">
-          <button id="sign-in-button" type="button" class="mdl-button">Submit</button>
-        </div>
-      </div>
     </div>
-  </dialog>
+  </div>
 
-  <!-- Change Password Dialog -->
-  <dialog id="change-password-modal" class="mdl-dialog">
-    <div class="mdl-dialog__content">
-      <form id="change-password">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-old-pw">
-          <input name="passwords[old]" class="mdl-textfield__input" type="password" id="old-password" />
-          <label class="mdl-textfield__label" for="old-password">Current Password</label>
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="change-password-modal">
+            <form id="change-password">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-old-pw">
+                <input name="passwords[old]" class="mdl-textfield__input" type="password" id="old-password" />
+                <label class="mdl-textfield__label" for="old-password">Current Password</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-new-pw">
+                <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password" />
+                <label class="mdl-textfield__label" for="new-password">New Password</label>
+              </div>
+              <div class="mdl-dialog__actions">
+                <button id="change-password-button" type="submit" name="submit" value="Change Password" class="mdl-button">Submit</button>
+                <button id="cancel-change-password-button" type="button" class="mdl-button">Cancel</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-new-pw">
-          <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password" />
-          <label class="mdl-textfield__label" for="new-password">New Password</label>
-        </div>
-      </form>
-      <form>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-new-pw-confirm">
-          <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password-confirm" />
-          <label class="mdl-textfield__label" for="new-password-confirm">Confirm New Password</label>
-        </div>
-      </form>
-      <div class="mdl-dialog__actions">
-        <button id="cancel-change-password-button" type="button" class="mdl-button">Cancel</button>
-        <button id="change-password-button" type="button" class="mdl-button">Submit</button>
       </div>
     </div>
-  </dialog>
+  </div>
+
+  <!-- Add New Idea and Link Buttons -->
 
   <div id="action-wrapper">
     <button class="mdl-button mdl-js-button mdl-button--icon">
@@ -109,28 +108,6 @@
   </button>
   </div>
 
-
-
-
-  <!-- Add Dialog Polyfill to ensure Material Design dialogs work in all browsers -->
-  <!-- <script src="/node_modules/material-design-lite/material.min.js"></script>
-  <script src="./node_modules/dialog-polyfill/dialog-polyfill.js"></script> -->
-  <script>
-    const dialog = document.querySelector('dialog');
-    dialogPolyfill.registerDialog(dialog);
-  </script>
-  <!-- Add Scripts for Materialize -->
-  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
-  <!-- Add Script for Materialize sideNav -->
-  <script>
-    $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 300
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true // Choose whether you can drag to open on touch screens
-    })
-  </script>
 </body>
 
 </html>
