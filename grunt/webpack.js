@@ -11,10 +11,9 @@ module.exports = {
       vendor: [
         'jquery',
         'bootstrap-sass',
-        'dialog-polyfill',
         'material-design-lite',
-        'materialize-css',
-        'material-design-icons'
+        'material-design-icons',
+        'salvattore'
       ]
     },
 
