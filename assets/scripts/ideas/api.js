@@ -3,6 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
+// Pulls ideas for current user on authentication
 const getIdeas = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/ideas',

@@ -1,9 +1,19 @@
 {{#each ideas as |idea|}}
 
-   <div data-id="{{idea.id}}" class="panel panel-primary column size-1of3">
-     <div class="panel-heading">Bright Idea {{idea.id}}</div>
-     <div class="panel-body">{{idea.content}}</div>
-     <button class = "button" type="button">Remove</button>
-   </div>
+   <div data-id="{{idea.id}}" class="thumbnail column size-1of3 view overlay hm-white-light">
+     <div class="panel-body">{{idea.content}}
+     <div class="caption">
+       <div class="action-container">
+          <button class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">add</i>
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">delete</i>
+          </button>
+      </div>
+    </div>
+    </div>
+  </div>
+
 
 {{/each}}

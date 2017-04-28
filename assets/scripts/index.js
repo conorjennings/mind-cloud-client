@@ -3,12 +3,12 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
-const ideaEvents = require('./ideas/events')
+// const ideaEvents = require('./ideas/events')
 
 $(() => {
   setAPIOrigin(location, config)
   authEvents.addAuthHandlers()
-  ideaEvents.addIdeaHandlers()
+  // ideaEvents.addIdeaHandlers()
   $('.sign-up-modal').hide()
   $('#action-wrapper').hide()
   $('#welcome-modal').modal({
@@ -22,5 +22,5 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 require('material-design-lite/src/material-design-lite.scss')
-require('salvattore/dist/salvattore.min.js')
 require('material-design-icons/iconfont/material-icons.css')
+require('mdbootstrap/css/bootstrap.css')

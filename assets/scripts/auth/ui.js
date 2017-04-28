@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const ideaEvents = require('../ideas/events.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -12,6 +13,7 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
+  ideaEvents.onGetIdeas()
   console.log(data)
 }
 
