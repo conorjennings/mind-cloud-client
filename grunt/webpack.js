@@ -56,6 +56,10 @@ module.exports = {
           includePaths: [path.resolve(__dirname, './node_modules')]
         },
         {
+          test: /\.html$/,
+          loader: 'html-loader'
+        },
+        {
           test: /\.woff[\d]?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'url-loader?limit=10000&mimetype=application/font-woff'
         },

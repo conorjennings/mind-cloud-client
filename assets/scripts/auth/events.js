@@ -58,6 +58,7 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
   $('#welcome-modal').modal('show')
   $('#action-wrapper').hide()
+  $('#grid').hide()
 }
 
 const cancelPasswordReset = function (event) {

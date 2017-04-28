@@ -126,17 +126,37 @@
     </div>
   </div>
 
-  <button id="get-ideas-button" class="btn btn-default">Get Ideas!</button>
-
-
+  <!-- Idea grid -->
   <div id="grid" data-columns>
   </div>
+
+  <!-- Single new idea - Modal -->
+  <div class="modal fade" id="new-idea-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form class="idea-input">
+            <input type="text" maxlength="100" placeholder="My bright idea..">
+          </form>
+          <div class="action-container">
+            <button class="mdl-button mdl-js-button mdl-button--icon">
+         <i class="material-icons">done</i>
+         </button>
+            <button class="mdl-button mdl-js-button mdl-button--icon">
+         <i class="material-icons">delete</i>
+         </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <!-- Add New Idea and Link Buttons -->
 
   <div id="action-wrapper">
-    <button class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
     <i class="material-icons">lightbulb_outline</i>
     </button>
 
