@@ -10,7 +10,6 @@ const onGetIdeas = function () {
 }
 
 const displayIdeaForm = function () {
-  console.log('click!')
   $('#new-idea-modal').modal('show')
 }
 

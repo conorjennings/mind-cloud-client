@@ -14,6 +14,17 @@ const getIdeas = (data) => {
   })
 }
 
+const deleteIdea = (id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/ideas/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  getIdeas
+  getIdeas,
+  deleteIdea
 }
