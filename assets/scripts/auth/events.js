@@ -19,9 +19,9 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  // $('#side-nav').show()
   $('#welcome-modal').modal('hide')
   $('#action-wrapper').show()
+  $('#nav').show()
 }
 
 const displaySignUp = function (event) {

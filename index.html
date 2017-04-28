@@ -50,12 +50,13 @@
 <body class="container-fluid">
 
   <!-- Change Password and Sign Out -->
-  <div id="nav">
+  <div id="nav" style="display:none">
     <button id="change-password-menu" class="mdl-button mdl-js-button">Change Password</button>
     <button id="sign-out-menu" class="mdl-button mdl-js-button">Sign Out</button>
   </div>
 
-  <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog">
+  <!-- Welcome Modal -->
+  <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog" style="display:none">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="welcome-modal-button-container">
@@ -79,7 +80,7 @@
                 </div>
               </form>
             </div>
-            <div class="sign-up-modal">
+            <div class="sign-up-modal" style="display:none">
               <form id="sign-up">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-email">
                   <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-up-email" />
@@ -101,7 +102,7 @@
   </div>
 
   <!-- Change Password Modal -->
-  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog">
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" style="display:none">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
@@ -127,11 +128,11 @@
   </div>
 
   <!-- Idea grid -->
-  <div id="grid" data-columns>
+  <div id="grid" data-columns style="display:none">
   </div>
 
   <!-- Single new idea - Modal -->
-  <div class="modal fade" id="new-idea-modal" tabindex="-1" role="dialog">
+  <div class="modal fade" id="new-idea-modal" tabindex="-1" role="dialog" style="display:none">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
@@ -142,7 +143,7 @@
             <button class="mdl-button mdl-js-button mdl-button--icon">
          <i class="material-icons">done</i>
          </button>
-            <button class="delete-idea-button mdl-button mdl-js-button mdl-button--icon">
+            <button class="delete-new-idea-button mdl-button mdl-js-button mdl-button--icon">
          <i class="material-icons">delete</i>
          </button>
           </div>
@@ -155,7 +156,7 @@
 
   <!-- Add New Idea and Link Buttons -->
 
-  <div id="action-wrapper">
+  <div id="action-wrapper" style="display:none">
     <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
     <i class="material-icons">lightbulb_outline</i>
     </button>

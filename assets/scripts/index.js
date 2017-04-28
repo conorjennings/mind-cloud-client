@@ -9,8 +9,6 @@ $(() => {
   setAPIOrigin(location, config)
   authEvents.addAuthHandlers()
   ideaEvents.addIdeaHandlers()
-  $('.sign-up-modal').hide()
-  $('#action-wrapper').hide()
   $('#welcome-modal').modal({
     backdrop: 'static',
     keyboard: false

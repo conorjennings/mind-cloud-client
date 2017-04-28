@@ -11,6 +11,11 @@ const onGetIdeas = function () {
 
 const displayIdeaForm = function () {
   $('#new-idea-modal').modal('show')
+  $('.delete-new-idea-button').on('click', hideIdeaForm)
+}
+
+const hideIdeaForm = () => {
+  $('#new-idea-modal').modal('hide')
 }
 
 // Add authentication event handlers to page
