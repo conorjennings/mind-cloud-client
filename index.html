@@ -8,12 +8,24 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- To use Material Design Lite Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+  <!-- Required for leveraging Salvvatore. Adding the styles to .scss files is not working. -->
+  <style>
+    .column {
+      float: left;
+    }
+
+    .size-1of3 {
+      width: 33.333%;
+    }
+
+    #grid[data-columns]::before {
+      content: '3 .column.size-1of3';
+    }
+  </style>
 
 </head>
 
@@ -100,7 +112,6 @@
 
 
   <div id="grid" data-columns>
-
   </div>
 
 
@@ -115,8 +126,6 @@
     <i class="material-icons">link</i>
   </button>
   </div>
-
-  <script src="./node_modules/salvattore/dist/salvattore.js"></script>
 </body>
 
 </html>
