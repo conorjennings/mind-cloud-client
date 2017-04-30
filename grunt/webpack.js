@@ -14,6 +14,7 @@ module.exports = {
         'material-design-lite',
         'material-design-icons',
         'salvattore'
+        // 'mdbootstrap'
       ]
     },
 

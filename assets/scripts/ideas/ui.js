@@ -7,7 +7,9 @@ const getIdeasSuccess = (data) => {
   console.log(data)
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
   $('#grid').append(showIdeasHtml)
+  $('#grid').show()
   $('.delete-idea-button').on('click', onDeleteIdea)
+  $('.edit-idea-button').on('click', onEditIdea)
 }
 
 const onDeleteIdea = function (data) {
@@ -17,6 +19,10 @@ const onDeleteIdea = function (data) {
     .then(deleteIdeaSuccess)
     .catch(deleteIdeaFailure)
   $(this).closest('.thumbnail').hide()
+}
+
+const onEditIdea = function () {
+  $('#new-idea-modal').modal('show')
 }
 
 const getIdeasFailure = (error) => {
