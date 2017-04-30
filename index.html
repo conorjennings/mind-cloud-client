@@ -19,29 +19,37 @@
       content: '3 .column.size-1of3';
     }
 
+    .size-1of3 {
+      min-width: 33.333%;
+    }
+
     .column {
       float: left;
     }
 
-    .size-1of3 {
-      width: 33.333%;
+    .size-1of4 {
+      min-width: 25%;
+    }
+
+    .size-1of2 {
+      min-width: 50%;
     }
 
     @media screen and (min-width: 1px) and (max-width: 767px) {
       #grid[data-columns]::before {
-        content: '2 .col-xs-6';
+        content: '2 .column.size-1of2';
       }
     }
 
     @media screen and (min-width:768px) and (max-width: 991px) {
       #grid[data-columns]::before {
-        content: '3 .col-sm-4';
+        content: '3 .column.size-1of3';
       }
     }
 
     @media screen and (min-width:992px) and (max-width: 9999px) {
       #grid[data-columns]::before {
-        content: '4 .col-md-3';
+        content: '4 .column.size-1of4';
       }
     }
   </style>
@@ -128,41 +136,60 @@
     </div>
   </div>
 
-  <!-- Idea grid -->
-  <div id="grid" data-columns style="display:none">
-  </div>
-
   <!-- Single new idea - Modal -->
   <div class="modal fade" id="new-idea-modal" tabindex="-1" role="dialog" style="display:none">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
           <form class="idea-input">
-            <input type="text" maxlength="100" placeholder="My bright idea..">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label new-idea ">
+              <input type="text " name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input">
+              <label class="mdl-textfield__label " for="new-idea ">New Idea</label>
+            </div>
+            <div class="action-container">
+              <button id="submit-new-idea-button" type="submit" name="submit" value="Create Idea" class="mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons ">done</i>
+              </button>
+              <button class="delete-new-idea-button mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">delete</i>
+              </button>
+            </div>
           </form>
-          <div class="action-container">
-            <button class="mdl-button mdl-js-button mdl-button--icon">
-         <i class="material-icons">done</i>
-         </button>
-            <button class="delete-new-idea-button mdl-button mdl-js-button mdl-button--icon">
-         <i class="material-icons">delete</i>
-         </button>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Add New Idea and Link Buttons -->
+  <div id="main-area">
 
-  <div id="action-wrapper" style="display:none">
-    <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
-    <i class="material-icons">lightbulb_outline</i>
+
+    <!-- Idea grid -->
+    <div id="grid" style="display:none" data-columns>
+      <div class="column size-1of4">
+      </div>
+      <div class="column size-1of4">
+      </div>
+      <div class="column size-1of4">
+      </div>
+      <div class="column size-1of4">
+      </div>
+    </div>
+
+    <!-- Add New Idea and Link Buttons -->
+
+    <div id="action-wrapper" style="display:none">
+      <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
+    <i class="material-icons ">lightbulb_outline</i>
     </button>
 
-    <button class="mdl-button mdl-js-button mdl-button--icon">
+      <button class="mdl-button mdl-js-button mdl-button--icon">
     <i class="material-icons">link</i>
   </button>
+    </div>
+
+    <div id="hidden-dom-elements" style="display:none">
+    </div>
+
   </div>
 
   <script>

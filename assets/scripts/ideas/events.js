@@ -9,13 +9,24 @@ const onGetIdeas = function () {
     .catch(ui.getIdeasFailure)
 }
 
-const displayIdeaForm = function () {
-  $('#new-idea-modal').modal('show')
-  $('.delete-new-idea-button').on('click', hideIdeaForm)
+const onCreateIdea = function (event) {
+  console.log('click!')
+  const data = $('.idea-input').serialize()
+  console.log('this is the data: ', data)
+  event.preventDefault()
+  api.createIdea(data)
+    .then(ui.createIdeaSuccess)
+    .catch(ui.createIdeaFailure)
 }
 
 const hideIdeaForm = () => {
   $('#new-idea-modal').modal('hide')
+}
+
+const displayIdeaForm = function () {
+  $('#new-idea-modal').modal('show')
+  $('.delete-new-idea-button').on('click', hideIdeaForm)
+  $('#submit-new-idea-button').on('click', onCreateIdea)
 }
 
 // Add authentication event handlers to page
@@ -25,5 +36,6 @@ const addIdeaHandlers = () => {
 
 module.exports = {
   onGetIdeas,
-  addIdeaHandlers
+  addIdeaHandlers,
+  onCreateIdea
 }

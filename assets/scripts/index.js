@@ -21,4 +21,3 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 require('material-design-lite/src/material-design-lite.scss')
 require('material-design-icons/iconfont/material-icons.css')
-require('mdbootstrap/css/bootstrap.css')

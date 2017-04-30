@@ -20,7 +20,6 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
   $('#welcome-modal').modal('hide')
-  $('#action-wrapper').show()
   $('#nav').show()
 }
 
