@@ -31,7 +31,8 @@ const createIdea = (data) => {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 
