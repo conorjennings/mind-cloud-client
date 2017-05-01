@@ -26,6 +26,17 @@ const displaySignUp = function (event) {
   $('.sign-up-modal').show()
   $('.sign-in-modal').hide()
   $('.modal-content').css('background-color', '#fbe9e7')
+
+  // Logic to confirm if passwords match
+  $('#sign-up-password, #sign-up-password-confirm').on('keyup', function () {
+    if ($('#sign-up-password').val() === $('#sign-up-password-confirm').val() && $('#sign-up-password').val() !== null) {
+      $('#sign-up-message').html('Matching').css('color', 'green')
+      $('#sign-up-button').prop('disabled', false)
+    } else {
+      $('#sign-up-message').html('Not Matching').css('color', 'red')
+      $('#sign-up-button').prop('disabled', true)
+    }
+  })
 }
 
 const displaySignIn = function (event) {
@@ -67,6 +78,7 @@ const onSignOut = function (event) {
   $('#welcome-modal').modal('show')
   $('#action-wrapper').hide()
   $('#grid').hide()
+  $('#nav').hide()
 }
 
 const cancelPasswordReset = function (event) {

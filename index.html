@@ -112,9 +112,14 @@
                   <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-up-password" placeholder="Password" />
                   <label class="mdl-textfield__label" for="sign-up-password">Password</label>
                 </div>
-                <div class="mdl-dialog__actions">
-                  <button id="sign-up-button" type="submit" name="submit" value="Sign Up" class="mdl-button">Submit</button>
+                <div class="mdl-textfield mdl-js-textfield change-pw-new-confirm">
+                  <input name="passwords[confirm]" class="mdl-textfield__input" type="password" id="sign-up-password-confirm" placeholder="Confirm New Password" />
+                  <label class="mdl-textfield__label" for="new-password">Confirm New Password</label>
                 </div>
+                <div class="mdl-dialog__actions">
+                  <button id="sign-up-button" type="submit" name="submit" value="Sign Up" class="mdl-button" disabled="disabled">Submit</button>
+                </div>
+                <div id="sign-up-message"><span></span></div>
               </form>
             </div>
           </div>
@@ -205,7 +210,7 @@
 
 
     <!-- Idea grid -->
-    <section data-columns="" id="grid" style="display:none">
+    <section class="clear" data-columns="" id="grid" style="display:none">
       <div class="column size-1of4"></div>
       <div class="column size-1of4"></div>
       <div class="column size-1of4"></div>

@@ -3,8 +3,11 @@
 const store = require('../store.js')
 const ideaEvents = require('../ideas/events.js')
 
-const signUpSuccess = (data) => {
-  console.log(data)
+const signUpSuccess = () => {
+  $('#sign-up-message').html('Account created!').css('color', 'black')
+  $('#sign-up-email').val('')
+  $('#sign-up-password').val('')
+  $('#sign-up-password-confirm').val('')
 }
 
 const signUpFailure = (error) => {
@@ -20,6 +23,7 @@ const signInSuccess = (data) => {
   $('#sign-in-error-field span').text('')
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
+  $('#sign-up-message').text('')
 }
 
 const signInFailure = () => {
