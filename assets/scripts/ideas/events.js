@@ -11,7 +11,7 @@ const onGetIdeas = function () {
 
 const onCreateIdea = function (event) {
   console.log('click!')
-  const data = $('.idea-input').serialize()
+  const data = $('.new-idea-input').serialize()
   console.log('this is the data: ', data)
   event.preventDefault()
   api.createIdea(data)
@@ -19,7 +19,8 @@ const onCreateIdea = function (event) {
     .catch(ui.createIdeaFailure)
 }
 
-const hideIdeaForm = () => {
+const hideIdeaForm = (event) => {
+  event.preventDefault()
   $('#new-idea-modal').modal('hide')
 }
 
@@ -29,7 +30,7 @@ const displayIdeaForm = function () {
   $('#submit-new-idea-button').on('click', onCreateIdea)
 }
 
-// Add authentication event handlers to page
+// Add idea event handlers to page
 const addIdeaHandlers = () => {
   $('#new-idea-button').on('click', displayIdeaForm)
 }

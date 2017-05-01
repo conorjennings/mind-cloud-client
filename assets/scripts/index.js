@@ -4,6 +4,9 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
 const ideaEvents = require('./ideas/events')
+const ideaStore = require('./idea-store')
+const ui = require('./ideas/ui')
+const api = require('./ideas/api')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -13,6 +16,17 @@ $(() => {
     backdrop: 'static',
     keyboard: false
   }).modal('show')
+})
+
+$(document).on('click', '.edit-idea-button', function (data) {
+  event.preventDefault()
+  console.log('data looks like; ', data)
+  const ideaId = $(this).data('id')
+  ideaStore.id = ideaId
+  api.getIdea(ideaStore.id)
+    .then(ui.getIdeaSuccess)
+    .catch(ui.getIdeaFailure)
+  console.log('ideaStore looks like ', ideaStore)
 })
 
 // use require with a reference to bundle the file and use it in this file

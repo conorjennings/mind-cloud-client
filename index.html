@@ -8,6 +8,7 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.js">
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -141,10 +142,10 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <form class="idea-input">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label new-idea ">
-              <input type="text " name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input">
-              <label class="mdl-textfield__label " for="new-idea ">New Idea</label>
+          <form class="new-idea-input">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label new-idea">
+              <input type="text" name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input">
+              <label class="mdl-textfield__label" for="new-idea ">New Idea</label>
             </div>
             <div class="action-container">
               <button id="submit-new-idea-button" type="submit" name="submit" value="Create Idea" class="mdl-button mdl-js-button mdl-button--icon">
@@ -160,6 +161,29 @@
     </div>
   </div>
 
+  <!-- Edit existing idea - Modal -->
+  <div class="modal fade" id="edit-idea-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form class="idea-input">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label new-idea">
+              <input type="text" name="idea[content]" maxlength="100" id="edit-idea" class="mdl-textfield__input">
+              <label class="mdl-textfield__label" for="new-idea ">New Idea</label>
+            </div>
+            <div class="action-container">
+              <button id="submit-edited-idea-button" data-id="" type="submit" name="submit" value="Create Idea" class="edit-submit mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons ">done</i>
+              </button>
+              <button class="delete-edit-idea-button mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">delete</i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="main-area">
 
 
@@ -195,6 +219,10 @@
   <script>
     type = "text/javascript"
     src = "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"
+  </script>
+  <script>
+    type = "text/javascript"
+    src = "https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.min.js"
   </script>
 
 </body>
