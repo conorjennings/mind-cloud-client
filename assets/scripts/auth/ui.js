@@ -15,18 +15,32 @@ const signInSuccess = (data) => {
   store.user = data.user
   ideaEvents.onGetIdeas()
   console.log(data)
+  $('#welcome-modal').modal('hide')
+  $('#nav').show()
+  $('#sign-in-error-field span').text('')
+  $('#sign-in-email').val('')
+  $('#sign-in-password').val('')
 }
 
-const signInFailure = (error) => {
-  console.log(error)
+const signInFailure = () => {
+  $('#sign-in-error-field span').text('Invalid credentials')
+  $('#sign-in-email').val('')
+  $('#sign-in-password').val('')
 }
 
 const changePasswordSuccess = (data) => {
-  console.log(data)
+  $('#change-password-modal').modal('hide')
+  $('#old-password').val('')
+  $('#new-password').val('')
+  $('#new-password-confirm').val('')
+  $('#pw-change-message').text('')
 }
 
-const changePasswordFailure = (error) => {
-  console.log(error)
+const changePasswordFailure = () => {
+  $('#pw-change-message').text('Current password is incorrect').css('color', 'black')
+  $('#old-password').val('')
+  $('#new-password').val('')
+  $('#new-password-confirm').val('')
 }
 
 const signOutSuccess = () => {

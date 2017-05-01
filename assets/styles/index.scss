@@ -4,6 +4,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 // @import '~material-design-lite/src/material-design-lite.scss';
 
+.modal-content {
+  border-radius: 0 !important;
+}
+
+.column {
+  margin: 0 2px;
+}
+
 .mdl-button {
   background-color: white;
   opacity: .6;
@@ -24,6 +32,7 @@ body {
 
 #grid {
   margin: auto;
+  width: 99%;
 }
 
 #action-wrapper {
@@ -64,40 +73,10 @@ body {
   text-align: center;
 }
 
-// #grid[data-columns]::before {
-//   content: '3 .column.size-1of3';
-// }
-//
-// .column {
-//   float: left;
-// }
-//
-// .size-1of1 {
-//   width: 100%;
-// }
-//
-// .size-1of3 {
-//   width: 33.333%;
-// }
-//
-// .size-1of2 {
-//   width: 50%;
-// }
-//
-// @media screen and (min-width: 1px) and (max-width: 767px) {
-//   #grid[data-columns]::before {
-//     content: '1 .column.size-1of1';
-//   }
-// }
-//
-// @media screen and (min-width:768px) and (max-width: 991px) {
-//   #grid[data-columns]::before {
-//     content: '2 .column.size-1of2';
-//   }
-// }
-//
-// @media screen and (min-width:992px) and (max-width: 9999px) {
-//   #grid[data-columns]::before {
-//     content: '3 .column.size-1of3';
-//   }
-// }
+.panel-body {
+  padding: 1px;
+}
+
+.caption {
+  padding: 0px;
+}

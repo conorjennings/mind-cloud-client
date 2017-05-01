@@ -51,7 +51,7 @@ const createIdeaSuccess = (data) => {
   $('.delete-new-idea-button').off()
   $('#submit-new-idea-button').off()
   $('.delete-idea-button').on('click', onDeleteIdea)
-  // $('.edit-idea-button').on('click', displayIdeaForm)
+  $('#new-idea').val('')
 }
 
 const onDeleteIdea = function (data) {
@@ -60,7 +60,7 @@ const onDeleteIdea = function (data) {
   api.deleteIdea(id)
     .then(deleteIdeaSuccess)
     .catch(deleteIdeaFailure)
-  $(this).closest('.thumbnail').hide()
+  $(this).closest('.thumbnail').remove()
 }
 
 const onEditIdea = function (event) {

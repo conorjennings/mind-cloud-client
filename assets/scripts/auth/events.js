@@ -19,8 +19,6 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  $('#welcome-modal').modal('hide')
-  $('#nav').show()
 }
 
 const displaySignUp = function (event) {
@@ -40,6 +38,17 @@ const displaySignIn = function (event) {
 const displayChangePw = function (event) {
   event.preventDefault()
   $('#change-password-modal').modal('show')
+
+  // Logic to confirm if passwords match
+  $('#new-password, #new-password-confirm').on('keyup', function () {
+    if ($('#new-password').val() === $('#new-password-confirm').val() && $('#new-password').val() !== null) {
+      $('#pw-change-message').html('Matching').css('color', 'green')
+      $('#change-password-button').prop('disabled', false)
+    } else {
+      $('#pw-change-message').html('Not Matching').css('color', 'red')
+      $('#change-password-button').prop('disabled', true)
+    }
+  })
 }
 
 const onPasswordReset = function (event) {
@@ -62,6 +71,9 @@ const onSignOut = function (event) {
 
 const cancelPasswordReset = function (event) {
   $('#change-password-modal').modal('hide')
+  $('#old-password').text('')
+  $('#new-password').val('')
+  $('#new-password-confirm').val('')
 }
 
 // Add authentication event handlers to page

@@ -8,47 +8,58 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.js">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.css"> -->
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
   <!-- Required for leveraging Salvvatore. Adding the styles to .scss files is not working. -->
-  <style>
-    #grid[data-columns]::before {
+  <style type="text/css">
+    /*#grid[data-columns]::before {
       content: '3 .column.size-1of3';
+    }*/
+
+    #grid .size-1of1 {
+      min-width: 100%;
     }
 
-    .size-1of3 {
-      min-width: 33.333%;
-    }
-
-    .column {
+    #grid .column {
       float: left;
+      margin: auto;
     }
 
-    .size-1of4 {
+    #grid .size-1of4 {
       min-width: 25%;
     }
 
-    .size-1of2 {
+    #grid .size-1of3 {
+      min-width: 33.333333%;
+    }
+
+    #grid .size-1of2 {
       min-width: 50%;
     }
 
     @media screen and (min-width: 1px) and (max-width: 767px) {
       #grid[data-columns]::before {
-        content: '2 .column.size-1of2';
+        content: '1 .column.size-1of1';
       }
     }
 
     @media screen and (min-width:768px) and (max-width: 991px) {
       #grid[data-columns]::before {
+        content: '2 .column.size-1of2';
+      }
+    }
+
+    @media screen and (min-width:992px) and (max-width: 2000px) {
+      #grid[data-columns]::before {
         content: '3 .column.size-1of3';
       }
     }
 
-    @media screen and (min-width:992px) and (max-width: 9999px) {
+    @media screen and (min-width: 2001px) and (max-width: 9999px) {
       #grid[data-columns]::before {
         content: '4 .column.size-1of4';
       }
@@ -77,27 +88,28 @@
           <div class="modal-body" id="welcome-modal-body">
             <div class="sign-in-modal">
               <form id="sign-in">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-in-email">
-                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-in-email" />
-                  <label class="mdl-textfield__label" for="sign-in-email">Email</label>
+                <div class="mdl-textfield mdl-js-textfield sign-in-email">
+                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-in-email" placeholder="Email" />
+                  <label id="sign-in-email-label" class="mdl-textfield__label" for="sign-in-email">Email</label>
                 </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-in-password">
-                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-in-password" />
+                <div class="mdl-textfield mdl-js-textfield sign-in-password">
+                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-in-password" placeholder="Password" />
                   <label class="mdl-textfield__label" for="sign-in-password">Password</label>
                 </div>
                 <div class="mdl-dialog__actions">
                   <button id="sign-in-button" type="submit" name="submit" value="Sign In" class="mdl-button">Submit</button>
                 </div>
+                <div id="sign-in-error-field"><span></span></div>
               </form>
             </div>
             <div class="sign-up-modal" style="display:none">
               <form id="sign-up">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-email">
-                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-up-email" />
+                <div class="mdl-textfield mdl-js-textfield sign-up-email">
+                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-up-email" placeholder="Email" />
                   <label class="mdl-textfield__label" for="sign-up-email">Email</label>
                 </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-password">
-                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-up-password" />
+                <div class="mdl-textfield mdl-js-textfield sign-up-password">
+                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-up-password" placeholder="Password" />
                   <label class="mdl-textfield__label" for="sign-up-password">Password</label>
                 </div>
                 <div class="mdl-dialog__actions">
@@ -118,18 +130,23 @@
         <div class="modal-body">
           <div class="change-password-modal">
             <form id="change-password">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-old-pw">
-                <input name="passwords[old]" class="mdl-textfield__input" type="password" id="old-password" />
+              <div class="mdl-textfield mdl-js-textfield change-pw-old-pw">
+                <input name="passwords[old]" class="mdl-textfield__input" type="password" id="old-password" placeholder="Current Password" />
                 <label class="mdl-textfield__label" for="old-password">Current Password</label>
               </div>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label change-pw-new-pw">
-                <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password" />
+              <div class="mdl-textfield mdl-js-textfield change-pw-new-pw">
+                <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password" placeholder="New Password" />
                 <label class="mdl-textfield__label" for="new-password">New Password</label>
               </div>
+              <div class="mdl-textfield mdl-js-textfield change-pw-new-confirm">
+                <input name="passwords[confirm]" class="mdl-textfield__input" type="password" id="new-password-confirm" placeholder="Confirm New Password" />
+                <label class="mdl-textfield__label" for="new-password">Confirm New Password</label>
+              </div>
               <div class="mdl-dialog__actions">
-                <button id="change-password-button" type="submit" name="submit" value="Change Password" class="mdl-button">Submit</button>
+                <button id="change-password-button" type="submit" name="submit" value="Change Password" class="mdl-button" disabled="disabled">Submit</button>
                 <button id="cancel-change-password-button" type="button" class="mdl-button">Cancel</button>
               </div>
+              <div id="pw-change-message"><span></span></div>
             </form>
           </div>
         </div>
@@ -143,7 +160,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <form class="new-idea-input">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label new-idea">
+            <div id="new-idea-label" class="mdl-textfield mdl-js-textfield new-idea">
               <input type="text" name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input">
               <label class="mdl-textfield__label" for="new-idea ">New Idea</label>
             </div>
@@ -188,16 +205,12 @@
 
 
     <!-- Idea grid -->
-    <div id="grid" style="display:none" data-columns>
-      <div class="column size-1of4">
-      </div>
-      <div class="column size-1of4">
-      </div>
-      <div class="column size-1of4">
-      </div>
-      <div class="column size-1of4">
-      </div>
-    </div>
+    <section data-columns="" id="grid" style="display:none">
+      <div class="column size-1of4"></div>
+      <div class="column size-1of4"></div>
+      <div class="column size-1of4"></div>
+      <div class="column size-1of4"></div>
+    </section>
 
     <!-- Add New Idea and Link Buttons -->
 
