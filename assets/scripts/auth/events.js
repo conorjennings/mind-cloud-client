@@ -25,7 +25,7 @@ const displaySignUp = function (event) {
   event.preventDefault()
   $('.sign-up-modal').show()
   $('.sign-in-modal').hide()
-  $('.modal-content').css('background-color', '#fbe9e7')
+  $('.modal-content').css('background-color', '#F6FCF9')
 
   // Logic to confirm if passwords match
   $('#sign-up-password, #sign-up-password-confirm').on('keyup', function () {
