@@ -55,6 +55,7 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = () => {
   store.user = null
+  $('#grid').find('.one-idea').remove()
   console.log('signOut success ran and nothing was returned')
 }
 

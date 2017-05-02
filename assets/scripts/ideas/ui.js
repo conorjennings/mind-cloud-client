@@ -8,8 +8,6 @@ const ideaStore = require('../idea-store.js')
 
 const getIdeasSuccess = (data) => {
   console.log(data)
-  // ideaStore.ideas = data.ideas
-  // console.log('idea store ', ideaStore.ideas)
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
   $('#hidden-dom-elements').append(showIdeasHtml)
   const gridContainer = document.getElementById('grid')
