@@ -83,6 +83,7 @@ const onSignOut = function (event) {
   $('#action-wrapper').hide()
   $('#grid').hide()
   $('#nav').hide()
+  $('#app-banner').hide()
 }
 
 const cancelPasswordReset = function (event) {

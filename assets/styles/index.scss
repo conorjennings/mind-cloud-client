@@ -18,6 +18,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 2px;
 }
 
+#grid {
+  position: relative;
+  top: 70px;
+}
+
 body {
   width: 100%;
 }
@@ -32,6 +37,15 @@ body {
 #action-wrapper {
   position: fixed;
   bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(255,255,255, 0.6);
+}
+
+#app-banner {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
   text-align: center;

@@ -20,6 +20,7 @@ const getIdeasSuccess = (data) => {
   salvattore.appendElements(gridContainer, newItems)
   $('#grid').show()
   $('#action-wrapper').show()
+  $('#app-banner').show()
   $('.delete-idea-button').off()
   $('.edit-idea-button').off()
   $('.delete-idea-button').on('click', onDeleteIdea)
