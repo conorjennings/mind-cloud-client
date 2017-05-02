@@ -35,6 +35,7 @@
 
     .column {
       float: left;
+      padding: 0px 5px;
     }
 
     .size-1of1 {
@@ -53,12 +54,6 @@
 </head>
 
 <body class="container-fluid">
-
-  <!-- Change Password and Sign Out -->
-  <div id="nav" style="display:none">
-    <button id="change-password-menu" class="mdl-button mdl-js-button">Change Password</button>
-    <button id="sign-out-menu" class="mdl-button mdl-js-button">Sign Out</button>
-  </div>
 
   <!-- Welcome Modal -->
   <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog" style="display:none">
@@ -191,42 +186,36 @@
       </div>
     </div>
   </div>
-  <div id="main-area">
 
+  <!-- Idea grid -->
+  <section id="grid" class="grid clear" data-columns>
+  </section>
 
-    <!-- Idea grid -->
-    <section id="grid" class="grid clear" data-columns>
-    </section>
+  <!-- Add New Idea and Link Buttons -->
 
+  <div id="action-wrapper" style="display:none">
 
-
-    <!-- Add New Idea and Link Buttons -->
-
-    <div id="action-wrapper" style="display:none">
-
-      <!-- Nav Menu -->
-      <button id="demo-menu-top-left" class="mdl-button mdl-js-button mdl-button--icon">
+    <!-- Nav Menu -->
+    <button id="demo-menu-top-left" class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">cloud</i>
       </button>
 
-      <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-top-left">
-        <li id="change-pw-menu-item" class="mdl-menu__item">change password</li>
-        <li id="sign-out-menu-item" class="mdl-menu__item">sign out</li>
-      </ul>
+    <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-top-left">
+      <li id="change-pw-menu-item" class="mdl-menu__item">change password</li>
+      <li id="sign-out-menu-item" class="mdl-menu__item">sign out</li>
+    </ul>
 
-      <!-- Create Idea Actions -->
-      <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
+    <!-- Create Idea Actions -->
+    <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
     <i class="material-icons ">lightbulb_outline</i>
     </button>
 
-      <button class="mdl-button mdl-js-button mdl-button--icon">
+    <!-- <button class="mdl-button mdl-js-button mdl-button--icon">
     <i class="material-icons">link</i>
-  </button>
-    </div>
+  </button> -->
+  </div>
 
-    <div id="hidden-dom-elements" style="display:none">
-    </div>
-
+  <div id="hidden-dom-elements" style="display:none">
   </div>
 
 </body>

@@ -7,6 +7,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   border-radius: 0 !important;
 }
 
+.thumbnail .caption {
+  padding: 15px 0 0;
+}
+
 .mdl-button {
   background-color: white;
   opacity: .6;
@@ -28,9 +32,10 @@ body {
 #action-wrapper {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   text-align: center;
-  margin: auto;
+  background: rgba(255,255,255, 0.6);
 }
 
 #sign-in-form-button {
@@ -64,9 +69,5 @@ body {
 }
 
 .panel-body {
-  padding: 1px;
-}
-
-.caption {
-  padding: 0px;
+  padding: 20px;
 }

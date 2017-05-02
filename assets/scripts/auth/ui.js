@@ -22,11 +22,14 @@ const signInSuccess = (data) => {
   ideaEvents.onGetIdeas()
   console.log(data)
   $('#welcome-modal').modal('hide')
-  $('#nav').show()
   $('#sign-in-error-field span').text('')
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
   $('#sign-up-message').text('')
+  $('#sign-up-message').val('')
+  $('#sign-up-email').val('')
+  $('#sign-up-password').val('')
+  $('#sign-up-password-confirm').val('')
 }
 
 const signInFailure = () => {

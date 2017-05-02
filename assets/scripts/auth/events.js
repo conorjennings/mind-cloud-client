@@ -29,7 +29,9 @@ const displaySignUp = function (event) {
 
   // Logic to confirm if passwords match
   $('#sign-up-password, #sign-up-password-confirm').on('keyup', function () {
-    if ($('#sign-up-password').val() === $('#sign-up-password-confirm').val() && $('#sign-up-password').val() !== null) {
+    if ($('#sign-up-password').val().length === 0 || $('#sign-up-password-confirm').val().length === 0) {
+      $('#sign-up-message').html('')
+    } else if ($('#sign-up-password').val() === $('#sign-up-password-confirm').val()) {
       $('#sign-up-message').html('Matching').css('color', 'green')
       $('#sign-up-button').prop('disabled', false)
     } else {
@@ -52,7 +54,9 @@ const displayChangePw = function (event) {
 
   // Logic to confirm if passwords match
   $('#new-password, #new-password-confirm').on('keyup', function () {
-    if ($('#new-password').val() === $('#new-password-confirm').val() && $('#new-password').val() !== null) {
+    if ($('#new-password').val().length === 0 || $('#new-password-confirm').val().length === 0) {
+      $('#pw-change-message').html('')
+    } else if ($('#new-password').val() === $('#new-password-confirm').val()) {
       $('#pw-change-message').html('Matching').css('color', 'green')
       $('#change-password-button').prop('disabled', false)
     } else {
@@ -82,10 +86,11 @@ const onSignOut = function (event) {
 }
 
 const cancelPasswordReset = function (event) {
-  $('#change-password-modal').modal('hide')
-  $('#old-password').text('')
+  $('#pw-change-message').html('')
+  $('#old-password').val('')
   $('#new-password').val('')
   $('#new-password-confirm').val('')
+  $('#change-password-modal').modal('hide')
 }
 
 // Add authentication event handlers to page
