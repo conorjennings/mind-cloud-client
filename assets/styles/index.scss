@@ -3,6 +3,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+* {
+ font-size: 100%;
+ font-family: 'Cantarell', sans-serif;
+}
+
 .modal-content {
   border-radius: 0 !important;
 }
