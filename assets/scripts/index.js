@@ -35,3 +35,4 @@ $(document).on('click', '.edit-idea-button', function (data) {
 // use require without a reference to ensure a file is bundled
 require('material-design-lite/src/material-design-lite.scss')
 require('material-design-icons/iconfont/material-icons.css')
+require('mdbootstrap/sass/mdb.scss')

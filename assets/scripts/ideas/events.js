@@ -22,6 +22,8 @@ const onCreateIdea = function (event) {
 const hideIdeaForm = (event) => {
   event.preventDefault()
   $('#new-idea-modal').modal('hide')
+  $('.delete-new-idea-button').off()
+  $('#submit-new-idea-button').off()
 }
 
 const displayIdeaForm = function () {

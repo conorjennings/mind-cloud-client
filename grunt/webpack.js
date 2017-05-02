@@ -12,9 +12,9 @@ module.exports = {
         'jquery',
         'bootstrap-sass',
         'material-design-lite',
-        'material-design-icons'
-        // 'salvattore'
-        // 'mdbootstrap'
+        'material-design-icons',
+        'salvattore',
+        'mdbootstrap'
       ]
     },
 

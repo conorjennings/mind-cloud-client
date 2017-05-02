@@ -3,7 +3,7 @@
 const showIdeasTemplate = require('../templates/display-ideas.handlebars')
 const displaySingleIdeaTemplate = require('../templates/load-single-idea.handlebars')
 const api = require('./api')
-const salvattore = require('../../../node_modules/salvattore/dist/salvattore.js')
+const salvattore = require('salvattore')
 const ideaStore = require('../idea-store.js')
 
 const getIdeasSuccess = (data) => {
@@ -13,17 +13,18 @@ const getIdeasSuccess = (data) => {
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
   $('#hidden-dom-elements').append(showIdeasHtml)
   const gridContainer = document.getElementById('grid')
-  console.log('grid container data ', gridContainer)
-  const newItems = []
-  console.log('new items ', newItems)
+  let newItems = []
   $('.one-idea').each(function () {
     newItems.push($(this)[0])
   })
   salvattore.appendElements(gridContainer, newItems)
   $('#grid').show()
   $('#action-wrapper').show()
+  $('.delete-idea-button').off()
+  $('.edit-idea-button').off()
   $('.delete-idea-button').on('click', onDeleteIdea)
   $('.edit-idea-button').on('click', displayIdeaForm)
+  newItems = []
 }
 
 const createIdeaFailure = (error) => {
@@ -45,12 +46,12 @@ const createIdeaSuccess = (data) => {
   console.log('new items array ', newItems)
   salvattore.appendElements(gridContainer, newItems)
   newItems = []
-  // ideaStore.ideas = ideaStore.ideas.push(data.idea)
   $('#grid').show()
   $('#new-idea-modal').modal('hide')
   $('.delete-new-idea-button').off()
   $('#submit-new-idea-button').off()
   $('.delete-idea-button').on('click', onDeleteIdea)
+  $('.edit-idea-button').on('click', displayIdeaForm)
   $('#new-idea').val('')
 }
 
@@ -79,6 +80,12 @@ const onEditIdea = function (event) {
   console.log(' confirm ideaStore is null = ', ideaStore)
 }
 
+const onGetIdeas = function () {
+  api.getIdeas()
+    .then(getIdeasSuccess)
+    .catch(getIdeasFailure)
+}
+
 const displayIdeaForm = function () {
   $('#edit-idea-modal').modal('show')
   $('.delete-edit-idea-button').on('click', hideIdeaForm)
@@ -97,11 +104,15 @@ const getIdeaFailure = (error) => {
 const hideIdeaForm = (event) => {
   event.preventDefault()
   $('#edit-idea-modal').modal('hide')
+  $('.delete-edit-idea-button').off()
+  $('#submit-edited-idea-button').off()
 }
 
-const editIdeaSuccess = (data) => {
-  console.log('edit successful ', data)
+const editIdeaSuccess = () => {
+  console.log('edit successful ')
   $('#edit-idea-modal').modal('hide')
+  $('#grid').find('.one-idea').remove()
+  onGetIdeas()
 }
 
 const editIdeaFailure = (error) => {

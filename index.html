@@ -7,8 +7,7 @@
 
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css"> -->
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -16,53 +15,38 @@
 
   <!-- Required for leveraging Salvvatore. Adding the styles to .scss files is not working. -->
   <style type="text/css">
-    /*#grid[data-columns]::before {
-      content: '3 .column.size-1of3';
-    }*/
-
-    #grid .size-1of1 {
-      min-width: 100%;
-    }
-
-    #grid .column {
-      float: left;
-      margin: auto;
-    }
-
-    #grid .size-1of4 {
-      min-width: 25%;
-    }
-
-    #grid .size-1of3 {
-      min-width: 33.333333%;
-    }
-
-    #grid .size-1of2 {
-      min-width: 50%;
-    }
-
-    @media screen and (min-width: 1px) and (max-width: 767px) {
-      #grid[data-columns]::before {
+    @media screen and (max-width: 480px) {
+      .grid[data-columns]::before {
         content: '1 .column.size-1of1';
       }
     }
 
-    @media screen and (min-width:768px) and (max-width: 991px) {
-      #grid[data-columns]::before {
+    @media screen and (min-width: 481px) and (max-width: 668px) {
+      .grid[data-columns]::before {
         content: '2 .column.size-1of2';
       }
     }
 
-    @media screen and (min-width:992px) and (max-width: 2000px) {
-      #grid[data-columns]::before {
+    @media screen and (min-width: 869px) {
+      .grid[data-columns]::before {
         content: '3 .column.size-1of3';
       }
     }
 
-    @media screen and (min-width: 2001px) and (max-width: 9999px) {
-      #grid[data-columns]::before {
-        content: '4 .column.size-1of4';
-      }
+    .column {
+      float: left;
+    }
+
+    .size-1of1 {
+      width: 100%;
+    }
+
+    .size-1of2 {
+      width: 50%;
+    }
+
+    .size-1of3 {
+      width: 33.333%;
     }
   </style>
 
@@ -166,9 +150,10 @@
         <div class="modal-body">
           <form class="new-idea-input">
             <div id="new-idea-label" class="mdl-textfield mdl-js-textfield new-idea">
-              <input type="text" name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input">
-              <label class="mdl-textfield__label" for="new-idea ">New Idea</label>
+              <input type="text" name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input" placeholder="New Idea">
+              <label class="mdl-textfield__label" for="new-idea">New Idea</label>
             </div>
+            <div id="new-idea-message"><span></span></div>
             <div class="action-container">
               <button id="submit-new-idea-button" type="submit" name="submit" value="Create Idea" class="mdl-button mdl-js-button mdl-button--icon">
                   <i class="material-icons ">done</i>
@@ -189,9 +174,9 @@
       <div class="modal-content">
         <div class="modal-body">
           <form class="idea-input">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label new-idea">
-              <input type="text" name="idea[content]" maxlength="100" id="edit-idea" class="mdl-textfield__input">
-              <label class="mdl-textfield__label" for="new-idea ">New Idea</label>
+            <div class="mdl-textfield mdl-js-textfield new-idea">
+              <input type="text" name="idea[content]" maxlength="100" id="edit-idea" class="mdl-textfield__input" placeholder="Edit Idea">
+              <label class="mdl-textfield__label" for="new-idea">New Idea</label>
             </div>
             <div class="action-container">
               <button id="submit-edited-idea-button" data-id="" type="submit" name="submit" value="Create Idea" class="edit-submit mdl-button mdl-js-button mdl-button--icon">
@@ -210,11 +195,7 @@
 
 
     <!-- Idea grid -->
-    <section class="clear" data-columns="" id="grid" style="display:none">
-      <div class="column size-1of4"></div>
-      <div class="column size-1of4"></div>
-      <div class="column size-1of4"></div>
-      <div class="column size-1of4"></div>
+    <section id="grid" class="grid clear" data-columns>
     </section>
 
     <!-- Add New Idea and Link Buttons -->
@@ -233,15 +214,6 @@
     </div>
 
   </div>
-
-  <script>
-    type = "text/javascript"
-    src = "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"
-  </script>
-  <script>
-    type = "text/javascript"
-    src = "https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.min.js"
-  </script>
 
 </body>
 

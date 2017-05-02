@@ -10,8 +10,11 @@ const signUpSuccess = () => {
   $('#sign-up-password-confirm').val('')
 }
 
-const signUpFailure = (error) => {
-  console.log(error)
+const signUpFailure = () => {
+  $('#sign-up-message').html('Account already exists').css('color', 'black')
+  $('#sign-up-email').val('')
+  $('#sign-up-password').val('')
+  $('#sign-up-password-confirm').val('')
 }
 
 const signInSuccess = (data) => {
