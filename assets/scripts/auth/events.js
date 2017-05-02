@@ -95,8 +95,8 @@ const addAuthHandlers = () => {
   $('#sign-up-form-button').on('click', displaySignUp)
   $('#sign-in-form-button').on('click', displaySignIn)
   $('#sign-up-form-button').on('click', displaySignUp)
-  $('#change-password-menu').on('click', displayChangePw)
-  $('#sign-out-menu').on('click', onSignOut)
+  $('#change-pw-menu-item').on('click', displayChangePw)
+  $('#sign-out-menu-item').on('click', onSignOut)
   $('#change-password').on('submit', onPasswordReset)
   $('#cancel-change-password-button').on('click', cancelPasswordReset)
 }
