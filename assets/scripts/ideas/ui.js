@@ -103,13 +103,15 @@ const getIdeaFailure = (error) => {
 
 const hideIdeaForm = (event) => {
   event.preventDefault()
-  $('#edit-idea-modal').modal('hide')
   $('.delete-edit-idea-button').off()
   $('#submit-edited-idea-button').off()
+  $('#edit-idea-modal').modal('hide')
 }
 
 const editIdeaSuccess = () => {
   console.log('edit successful ')
+  $('.delete-edit-idea-button').off()
+  $('#submit-edited-idea-button').off()
   $('#edit-idea-modal').modal('hide')
   $('#grid').find('.one-idea').remove()
   onGetIdeas()
