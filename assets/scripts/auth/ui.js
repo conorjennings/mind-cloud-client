@@ -4,14 +4,14 @@ const store = require('../store.js')
 const ideaEvents = require('../ideas/events.js')
 
 const signUpSuccess = () => {
-  $('#sign-up-message').html('Account created!').css('color', 'black')
+  $('#sign-up-message').html('account created!').css('color', 'black')
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirm').val('')
 }
 
 const signUpFailure = () => {
-  $('#sign-up-message').html('Account already exists').css('color', 'black')
+  $('#sign-up-message').html('account already exists').css('color', 'black')
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirm').val('')
@@ -33,7 +33,7 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = () => {
-  $('#sign-in-error-field span').text('Invalid credentials')
+  $('#sign-in-error-field span').text('invalid credentials')
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
 }
@@ -47,7 +47,7 @@ const changePasswordSuccess = (data) => {
 }
 
 const changePasswordFailure = () => {
-  $('#pw-change-message').text('Current password is incorrect').css('color', 'black')
+  $('#pw-change-message').text('current password is incorrect').css('color', 'black')
   $('#old-password').val('')
   $('#new-password').val('')
   $('#new-password-confirm').val('')

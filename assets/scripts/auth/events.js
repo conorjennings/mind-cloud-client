@@ -32,10 +32,10 @@ const displaySignUp = function (event) {
     if ($('#sign-up-password').val().length === 0 || $('#sign-up-password-confirm').val().length === 0) {
       $('#sign-up-message').html('')
     } else if ($('#sign-up-password').val() === $('#sign-up-password-confirm').val()) {
-      $('#sign-up-message').html('Matching').css('color', 'green')
+      $('#sign-up-message').html('matching').css('color', 'green')
       $('#sign-up-button').prop('disabled', false)
     } else {
-      $('#sign-up-message').html('Not Matching').css('color', 'red')
+      $('#sign-up-message').html('not matching').css('color', 'red')
       $('#sign-up-button').prop('disabled', true)
     }
   })
@@ -57,10 +57,10 @@ const displayChangePw = function (event) {
     if ($('#new-password').val().length === 0 || $('#new-password-confirm').val().length === 0) {
       $('#pw-change-message').html('')
     } else if ($('#new-password').val() === $('#new-password-confirm').val()) {
-      $('#pw-change-message').html('Matching').css('color', 'green')
+      $('#pw-change-message').html('matching').css('color', 'green')
       $('#change-password-button').prop('disabled', false)
     } else {
-      $('#pw-change-message').html('Not Matching').css('color', 'red')
+      $('#pw-change-message').html('not matching').css('color', 'red')
       $('#change-password-button').prop('disabled', true)
     }
   })
