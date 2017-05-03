@@ -3,7 +3,7 @@
 # mindCloud app
 
 Find the app [here](https://danielleletarte.github.io/mind-cloud-client/)<br>
-Find the mindCloud API [here](https://github.com/danielleletarte/mind-cloud-api)
+Find the mindCloud API repo [here](https://github.com/danielleletarte/mind-cloud-api)
 
 ## About the app
 
@@ -60,7 +60,7 @@ The design is optimized for any size device. Ideas display in multiple columns o
  - I created a Handlebars template to grab all ideas and display to the screen upon authentication of a user. I created a second template to be used for rendering a newly created idea to the screen.
  - I moved on to creating the necessary front end buttons to validate create, edit and delete actions from the front end.
  - My biggest hurdle was implementing the Node.js module Salvattore, which creates a very dynamic grid structure. The documentation was spotty and I struggled with incorporating the files locally in the project template we are using.
- - Once all functioanlity was validated, I focused on adding some style to the front end. I added the header and incororated a nicely scrolling ui. I tested the app on different devices and browsers to confirm it was compatible. 
+ - Once all functioanlity was validated, I focused on adding some style to the front end. I added the header and incororated a nicely scrolling ui. I tested the app on different devices and browsers to confirm it was compatible.
 
 ### Wireframes and Models
 
