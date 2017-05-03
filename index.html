@@ -8,13 +8,14 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
-  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css"> -->
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
-  <!-- Required for leveraging Salvvatore. Adding the styles to .scss files is not working. -->
+  <!-- Required for leveraging Salvvatore module. Adding the styles to the .scss file is not working. -->
+
+  <!-- Media queries to adjust grid layout dynamically -->
   <style type="text/css">
     @media screen and (max-width: 480px) {
       .grid[data-columns]::before {
@@ -144,7 +145,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <form class="new-idea-input">
+          <form class="new-idea-input" id="new-idea-form">
             <div id="new-idea-label" class="mdl-textfield mdl-js-textfield new-idea">
               <input type="text" name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input" placeholder="new idea goes here">
               <label class="mdl-textfield__label" for="new-idea">New Idea</label>
@@ -195,10 +196,9 @@
   </section>
 
   <!-- Add New Idea and Link Buttons -->
-
   <div id="action-wrapper" style="display:none">
 
-    <!-- Banner -->
+    <!-- mindCloud Banner -->
     <div id="app-banner" style="display:none">
       <h1>mindCloud</h1>
     </div>

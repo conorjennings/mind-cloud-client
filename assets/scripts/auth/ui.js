@@ -20,7 +20,7 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
   store.user = data.user
   ideaEvents.onGetIdeas()
-  console.log(data)
+  // console.log(data)
   $('#welcome-modal').modal('hide')
   $('#sign-in-error-field span').text('')
   $('#sign-in-email').val('')
@@ -56,7 +56,7 @@ const changePasswordFailure = () => {
 const signOutSuccess = () => {
   store.user = null
   $('#grid').find('.one-idea').remove()
-  console.log('signOut success ran and nothing was returned')
+  // console.log('signOut success ran and nothing was returned')
 }
 
 module.exports = {

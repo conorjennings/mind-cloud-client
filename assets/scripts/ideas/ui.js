@@ -6,8 +6,9 @@ const api = require('./api')
 const salvattore = require('salvattore')
 const ideaStore = require('../idea-store.js')
 
+// Appends all user ideas to the Salvattore grid upon authentication.
 const getIdeasSuccess = (data) => {
-  console.log(data)
+  // console.log(data)
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
   $('#hidden-dom-elements').append(showIdeasHtml)
   const gridContainer = document.getElementById('grid')
@@ -30,19 +31,20 @@ const createIdeaFailure = (error) => {
   console.log(error)
 }
 
+// Appends the new idea to the Salvattore board after successful POST
 const createIdeaSuccess = (data) => {
-  console.log('confirm idea has an id ', data)
+  // console.log('confirm idea has an id ', data)
   const showIdeaHtml = displaySingleIdeaTemplate({ idea: data.idea })
-  console.log('showIdeaHtml data ', showIdeaHtml)
+  // console.log('showIdeaHtml data ', showIdeaHtml)
   $('#hidden-dom-elements').append(showIdeaHtml)
   const gridContainer = document.getElementById('grid')
-  console.log('grid container data ', gridContainer)
+  // console.log('grid container data ', gridContainer)
   let newItems = []
   $('.one-new-idea').each(function () {
     newItems.push($(this)[0])
     $('.one-new-idea').addClass('one-idea').removeClass('one-new-idea')
   })
-  console.log('new items array ', newItems)
+  // console.log('new items array ', newItems)
   salvattore.appendElements(gridContainer, newItems)
   newItems = []
   $('#grid').show()
@@ -55,7 +57,7 @@ const createIdeaSuccess = (data) => {
 }
 
 const onDeleteIdea = function (data) {
-  console.log('data looks like; ', data)
+  // console.log('data looks like; ', data)
   const id = $(this).data('id')
   api.deleteIdea(id)
     .then(deleteIdeaSuccess)
@@ -63,9 +65,10 @@ const onDeleteIdea = function (data) {
   $(this).closest('.thumbnail').remove()
 }
 
+// Grabs the edited text from the edit idea modal and sends a PATCH request.
 const onEditIdea = function (event) {
   const content = document.getElementById('edit-idea').value
-  console.log('content ', content)
+  // console.log('content ', content)
   event.preventDefault()
   const data = {
     'idea': {
@@ -76,7 +79,7 @@ const onEditIdea = function (event) {
   .then(editIdeaSuccess)
   .catch(editIdeaFailure)
   ideaStore.id = null
-  console.log(' confirm ideaStore is null = ', ideaStore)
+  // console.log(' confirm ideaStore is null = ', ideaStore)
 }
 
 const onGetIdeas = function () {
@@ -92,7 +95,7 @@ const displayIdeaForm = function () {
 }
 
 const getIdeaSuccess = (data) => {
-  console.log('get successful ', data)
+  // console.log('get successful ', data)
   $('#edit-idea').val(data.idea.content)
 }
 
@@ -107,8 +110,9 @@ const hideIdeaForm = (event) => {
   $('#edit-idea-modal').modal('hide')
 }
 
+// After successful PATCH request, the idea grid is cleared/rendered again by making an INDEX request.
 const editIdeaSuccess = () => {
-  console.log('edit successful ')
+  // console.log('edit successful ')
   $('.delete-edit-idea-button').off()
   $('#submit-edited-idea-button').off()
   $('#edit-idea-modal').modal('hide')
@@ -125,7 +129,7 @@ const getIdeasFailure = (error) => {
 }
 
 const deleteIdeaSuccess = (data) => {
-  console.log('delete successful')
+  // console.log('delete successful')
   $('#new-idea-modal').modal('hide')
 }
 

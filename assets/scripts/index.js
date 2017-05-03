@@ -29,9 +29,6 @@ $(document).on('click', '.edit-idea-button', function (data) {
   console.log('ideaStore looks like ', ideaStore)
 })
 
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
 // use require without a reference to ensure a file is bundled
 require('material-design-lite/src/material-design-lite.scss')
 require('material-design-icons/iconfont/material-icons.css')

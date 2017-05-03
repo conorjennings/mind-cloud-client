@@ -3,26 +3,30 @@
 const api = require('./api')
 const ui = require('./ui')
 
+// Events triggered by hitting Sign Up on welcome modal
 const onSignUp = function (event) {
   const data = $('#sign-up').serialize()
-  console.log('this is the data: ', data)
+  // console.log('this is the data: ', data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
 
+// Events triggered by hitting Sign In on welcome modal
 const onSignIn = function (event) {
   const data = $('#sign-in').serialize()
-  console.log('this is the data: ', data)
+  // console.log('this is the data: ', data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
 
+// Events triggered when the Sign up toggle is enabled on welcome modal
 const displaySignUp = function (event) {
   event.preventDefault()
+  document.getElementById('sign-in').reset()
   $('.sign-up-modal').show()
   $('.sign-in-modal').hide()
   $('.modal-content').css('background-color', '#F6FCF9')
@@ -41,8 +45,10 @@ const displaySignUp = function (event) {
   })
 }
 
+// Events triggered when the Sign in toggle is enabled on welcome modal
 const displaySignIn = function (event) {
   event.preventDefault()
+  document.getElementById('sign-up').reset()
   $('.sign-up-modal').hide()
   $('.sign-in-modal').show()
   $('.modal-content').css('background-color', '#e0f2f1')
@@ -66,15 +72,26 @@ const displayChangePw = function (event) {
   })
 }
 
+// Events triggered when user submits a password reset request
 const onPasswordReset = function (event) {
   const data = $('#change-password').serialize()
-  console.log('this is the data: ', data)
+  // console.log('this is the data: ', data)
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
 
+// Hide password reset modal when user cancels action. Clear the form
+const cancelPasswordReset = function (event) {
+  $('#pw-change-message').html('')
+  $('#old-password').val('')
+  $('#new-password').val('')
+  $('#new-password-confirm').val('')
+  $('#change-password-modal').modal('hide')
+}
+
+// Events triggered when user signs out of app. Welcome modal is displayed and all data/functional buttons hidden
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
@@ -84,14 +101,6 @@ const onSignOut = function (event) {
   $('#grid').hide()
   $('#nav').hide()
   $('#app-banner').hide()
-}
-
-const cancelPasswordReset = function (event) {
-  $('#pw-change-message').html('')
-  $('#old-password').val('')
-  $('#new-password').val('')
-  $('#new-password-confirm').val('')
-  $('#change-password-modal').modal('hide')
 }
 
 // Add authentication event handlers to page

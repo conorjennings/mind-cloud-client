@@ -10,9 +10,8 @@ const onGetIdeas = function () {
 }
 
 const onCreateIdea = function (event) {
-  console.log('click!')
   const data = $('.new-idea-input').serialize()
-  console.log('this is the data: ', data)
+  // console.log('this is the data: ', data)
   event.preventDefault()
   api.createIdea(data)
     .then(ui.createIdeaSuccess)
@@ -21,6 +20,7 @@ const onCreateIdea = function (event) {
 
 const hideIdeaForm = (event) => {
   event.preventDefault()
+  document.getElementById('new-idea-form').reset()
   $('#new-idea-modal').modal('hide')
   $('.delete-new-idea-button').off()
   $('#submit-new-idea-button').off()

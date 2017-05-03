@@ -3,11 +3,13 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// Sets default font for the application
 * {
  font-size: 16px;
  font-family: 'Cantarell', sans-serif;
 }
 
+// Setting the font size for input fields ensures on mobile the fields don't zoom on focus. If this happens the user must manually zoom out after the modal closes to see the full app.
 input[type="text"] {
   font-size: 16px;
 }
@@ -16,6 +18,7 @@ input[type="password"] {
   font-size: 16px;
 }
 
+// Removing the bootstrap rounded corners on the modals.
 .modal-content {
   border-radius: 0 !important;
 }
