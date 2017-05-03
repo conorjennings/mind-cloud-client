@@ -20,13 +20,13 @@ $(() => {
 
 $(document).on('click', '.edit-idea-button', function (data) {
   event.preventDefault()
-  console.log('data looks like; ', data)
+  // console.log('data looks like; ', data)
   const ideaId = $(this).data('id')
   ideaStore.id = ideaId
   api.getIdea(ideaStore.id)
     .then(ui.getIdeaSuccess)
     .catch(ui.getIdeaFailure)
-  console.log('ideaStore looks like ', ideaStore)
+  // console.log('ideaStore looks like ', ideaStore)
 })
 
 // use require without a reference to ensure a file is bundled
