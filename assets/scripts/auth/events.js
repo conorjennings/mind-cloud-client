@@ -6,7 +6,6 @@ const ui = require('./ui')
 // Events triggered by hitting Sign Up on welcome modal
 const onSignUp = function (event) {
   const data = $('#sign-up').serialize()
-  // console.log('this is the data: ', data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -16,7 +15,6 @@ const onSignUp = function (event) {
 // Events triggered by hitting Sign In on welcome modal
 const onSignIn = function (event) {
   const data = $('#sign-in').serialize()
-  // console.log('this is the data: ', data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
