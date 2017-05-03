@@ -11,9 +11,57 @@ mindCloud is a clean and simple way to manage brilliance. Afraid you will forget
 
 ### How it works
 
+A user must create an account and authenticate to access mindCloud.
+
+![Sign In](imgs/sign-in.JPG)
+
+Once signed in, a user can see all ideas they have saved under their account.
+
+![Landing Page](imgs/first-idea.JPG)
+
+A user creates an idea by selecting the lighbulb icon. An input form is displayed with options to save the new idea or discard it.
+
+![New Idea](imgs/new-idea.JPG)
+
+Once an idea is saved, it is dynamically added to the user's list.
+
+![Idea List](imgs/list-of-ideas.JPG)
+
+Hovering over an idea highlights it, making it easier to navigate a large list of ideas.
+
+![Highlight Feature](imgs/hover-feature.JPG)
+
+A user can edit an idea by selecting the pencil icon for the appropriate idea. An edit form will display with the unedited text.
+
+![Edit Idea](imgs/edit-idea.JPG)
+
+Selecting the check mark saves the changes and displays the updated idea.
+
+![Edit Result](imgs/edit-result.JPG)
+
+To sign out, select the cloud icon at the bottom of the screen for access to the menu options.
+
+![Menu Options](imgs/menu-view.JPG)
+
+The design is optimized for any size device. Ideas display in multiple columns on wider screens.
+
+![Two Column Format](imgs/two-column.JPG)
+
+![Three Column Format](imgs/three-column.JPG)
+
 ## Project Planning
 
 ### Approach
+
+ - Before doing any coding, I put together some wireframes and documented the ERD for this project. I decided on a simple one-to-many relationship between users and ideas. I mapped out what I would need for fields on the new resource before moving on.
+ - I started with validating the authentication functionality on the back end by creating curl scripts. Authentication was provided in the API already, so this was a natural place to start.
+ - I created basic modals on the front end to validate authentication actions were working before moving on to the the basic layout design for the application.
+ - I set up the scaffold for the Ideas table and created scripts to validate the routes I would need (outlined in the API README linked above).
+ - I created a Handlebars template to grab all ideas and display to the screen upon authentication of a user. I created a second template to be used for rendering a newly created idea to the screen.
+ - I moved on to creating the necessary front end buttons to validate create, edit and delete actions from the front end.
+ - My biggest hurdle was implementing the Node.js module Salvattore, which creates a very dynamic grid structure. The documentation was spotty and I struggled with incorporating the files locally in the project template we are using.
+ - Once all functioanlity was validated, I focused on adding some style to the front end. I added the header and incororated a nicely scrolling ui. I tested the app on different devices and browsers to confirm it was compatible. 
+
 ### Wireframes and Models
 
 [ERD](imgs/erd.JPG)<br>
