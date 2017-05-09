@@ -89,9 +89,19 @@ const onGetIdeas = function () {
 }
 
 const displayIdeaForm = function () {
-  $('#edit-idea-modal').modal('show')
+  $('#edit-idea-modal').modal({
+    backdrop: 'static',
+    keyboard: false
+  }).modal('show')
   $('.delete-edit-idea-button').on('click', hideIdeaForm)
   $('#submit-edited-idea-button').on('click', onEditIdea)
+  $('#edit-idea').on('keyup', function () {
+    if ($('#edit-idea').val().length !== 0) {
+      $('#submit-edited-idea-button').prop('disabled', false)
+    } else {
+      $('#submit-edited-idea-button').prop('disabled', true)
+    }
+  })
 }
 
 const getIdeaSuccess = (data) => {
