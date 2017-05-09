@@ -31,8 +31,16 @@ const displayIdeaForm = function () {
     backdrop: 'static',
     keyboard: false
   }).modal('show')
+  $('#submit-new-idea-button').prop('disabled', true)
   $('.delete-new-idea-button').on('click', hideIdeaForm)
   $('#submit-new-idea-button').on('click', onCreateIdea)
+  $('#new-idea').on('keyup', function () {
+    if ($('#new-idea').val().length !== 0) {
+      $('#submit-new-idea-button').prop('disabled', false)
+    } else {
+      $('#submit-new-idea-button').prop('disabled', true)
+    }
+  })
 }
 
 // Add idea event handlers to page
