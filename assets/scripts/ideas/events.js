@@ -27,7 +27,10 @@ const hideIdeaForm = (event) => {
 }
 
 const displayIdeaForm = function () {
-  $('#new-idea-modal').modal('show')
+  $('#new-idea-modal').modal({
+    backdrop: 'static',
+    keyboard: false
+  }).modal('show')
   $('.delete-new-idea-button').on('click', hideIdeaForm)
   $('#submit-new-idea-button').on('click', onCreateIdea)
 }
