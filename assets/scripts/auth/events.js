@@ -58,6 +58,7 @@ const displayChangePw = function (event) {
     backdrop: 'static',
     keyboard: false
   }).modal('show')
+  $('#change-password-button').prop('disabled', true)
 
   // Logic to confirm if passwords match
   $('#new-password, #new-password-confirm').on('keyup', function () {
