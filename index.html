@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>mindCloud</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+  <!-- Required for leveraging Salvvatore module. Adding the styles to the .scss file is not working. -->
+
+  <!-- Media queries to adjust grid layout dynamically -->
+  <style type="text/css">
+    @media screen and (max-width: 480px) {
+      .grid[data-columns]::before {
+        content: '1 .column.size-1of1';
+      }
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 668px) {
+      .grid[data-columns]::before {
+        content: '2 .column.size-1of2';
+      }
+    }
+
+    @media screen and (min-width: 869px) {
+      .grid[data-columns]::before {
+        content: '3 .column.size-1of3';
+      }
+    }
+
+    .column {
+      float: left;
+      padding: 0px 5px;
+    }
+
+    .size-1of1 {
+      width: 100%;
+    }
+
+    .size-1of2 {
+      width: 50%;
+    }
+
+    .size-1of3 {
+      width: 33.333%;
+    }
+  </style>
+
+</head>
+
+<body class="container-fluid">
+
+  <!-- Welcome Modal -->
+  <div class="modal fade" id="welcome-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="welcome-modal-button-container">
+          <button id="sign-in-form-button" type="button" class="mdl-button">Sign In</button>
+          <button id="sign-up-form-button" type="button" class="mdl-button">Sign Up</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body" id="welcome-modal-body">
+            <div class="sign-in-modal">
+              <form id="sign-in">
+                <div class="mdl-textfield mdl-js-textfield sign-in-email">
+                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-in-email" placeholder="email" />
+                  <label id="sign-in-email-label" class="mdl-textfield__label" for="sign-in-email">email</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield sign-in-password">
+                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-in-password" placeholder="password" />
+                  <label class="mdl-textfield__label" for="sign-in-password">password</label>
+                </div>
+                <div class="mdl-dialog__actions">
+                  <button id="sign-in-button" type="submit" name="submit" value="Sign In" class="mdl-button">Submit</button>
+                </div>
+                <div id="sign-in-error-field"><span></span></div>
+              </form>
+            </div>
+            <div class="sign-up-modal" style="display:none">
+              <form id="sign-up">
+                <div class="mdl-textfield mdl-js-textfield sign-up-email">
+                  <input name="credentials[email]" class="mdl-textfield__input" type="text" id="sign-up-email" placeholder="email" />
+                  <label class="mdl-textfield__label" for="sign-up-email">Email</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield sign-up-password">
+                  <input name="credentials[password]" class="mdl-textfield__input" type="password" id="sign-up-password" placeholder="password" />
+                  <label class="mdl-textfield__label" for="sign-up-password">Password</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield change-pw-new-confirm">
+                  <input name="passwords[confirm]" class="mdl-textfield__input" type="password" id="sign-up-password-confirm" placeholder="confirm new password" />
+                  <label class="mdl-textfield__label" for="new-password">Confirm New Password</label>
+                </div>
+                <div class="mdl-dialog__actions">
+                  <button id="sign-up-button" type="submit" name="submit" value="Sign Up" class="mdl-button" disabled="disabled">Submit</button>
+                </div>
+                <div id="sign-up-message"><span></span></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="change-password-modal">
+            <form id="change-password">
+              <div class="mdl-textfield mdl-js-textfield change-pw-old-pw">
+                <input name="passwords[old]" class="mdl-textfield__input" type="password" id="old-password" placeholder="current password" />
+                <label class="mdl-textfield__label" for="old-password">Current Password</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield change-pw-new-pw">
+                <input name="passwords[new]" class="mdl-textfield__input" type="password" id="new-password" placeholder="new password" />
+                <label class="mdl-textfield__label" for="new-password">New Password</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield change-pw-new-confirm">
+                <input name="passwords[confirm]" class="mdl-textfield__input" type="password" id="new-password-confirm" placeholder="confirm new password" />
+                <label class="mdl-textfield__label" for="new-password">Confirm New Password</label>
+              </div>
+              <div class="mdl-dialog__actions">
+                <button id="change-password-button" type="submit" name="submit" value="Change Password" class="mdl-button" disabled="disabled">Submit</button>
+                <button id="cancel-change-password-button" type="button" class="mdl-button">Cancel</button>
+              </div>
+              <div id="pw-change-message"><span></span></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single new idea - Modal -->
+  <div class="modal fade" id="new-idea-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form class="new-idea-input" id="new-idea-form">
+            <div id="new-idea-label" class="mdl-textfield mdl-js-textfield new-idea">
+              <input type="text" name="idea[content]" maxlength="100" id="new-idea" class="mdl-textfield__input" placeholder="new idea goes here">
+              <label class="mdl-textfield__label" for="new-idea">New Idea</label>
+            </div>
+            <div id="new-idea-message"><span></span></div>
+            <div class="action-container">
+              <button id="submit-new-idea-button" type="submit" name="submit" value="Create Idea" class="mdl-button mdl-js-button mdl-button--icon" disabled="disabled">
+                  <i class="material-icons ">done</i>
+              </button>
+              <button class="delete-new-idea-button mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">delete</i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit existing idea - Modal -->
+  <div class="modal fade" id="edit-idea-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form class="idea-input">
+            <div class="mdl-textfield mdl-js-textfield new-idea">
+              <input type="text" name="idea[content]" maxlength="100" id="edit-idea" class="mdl-textfield__input" placeholder="edit idea">
+              <label class="mdl-textfield__label" for="new-idea">New Idea</label>
+            </div>
+            <div class="action-container">
+              <button id="submit-edited-idea-button" data-id="" type="submit" name="submit" value="Create Idea" class="edit-submit mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons ">done</i>
+              </button>
+              <button class="delete-edit-idea-button mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">delete</i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Idea grid -->
+  <section id="grid" class="grid clear" data-columns>
+  </section>
+
+  <!-- Add New Idea and Link Buttons -->
+  <div id="action-wrapper" style="display:none">
+
+    <!-- mindCloud Banner -->
+    <div id="app-banner" style="display:none">
+      <h1>mindCloud</h1>
+    </div>
+
+    <!-- Nav Menu -->
+    <button id="demo-menu-top-left" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">cloud</i>
+      </button>
+
+    <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-top-left">
+      <li id="change-pw-menu-item" class="mdl-menu__item">change password</li>
+      <li id="sign-out-menu-item" class="mdl-menu__item">sign out</li>
+    </ul>
+
+    <!-- Create Idea Actions -->
+    <button id="new-idea-button" class="mdl-button mdl-js-button mdl-button--icon">
+    <i class="material-icons ">lightbulb_outline</i>
+    </button>
+
+  </div>
+
+  <div id="hidden-dom-elements" style="display:none">
+  </div>
+
+</body>
+
+</html>
