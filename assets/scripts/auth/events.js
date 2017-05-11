@@ -48,6 +48,7 @@ const displaySignIn = function (event) {
   event.preventDefault()
   document.getElementById('sign-up').reset()
   $('.sign-up-modal').hide()
+  $('#sign-up-message').html('')
   $('.sign-in-modal').show()
   $('.modal-content').css('background-color', '#e0f2f1')
 }
